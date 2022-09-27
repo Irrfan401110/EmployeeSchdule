@@ -46,6 +46,10 @@ namespace EmployeeSchdule.Extentions
             {
                 _rawToFlatList.Add("Leave", MapTo(leave.StartTime, shift.EndTime));
             }
+            else if (leave.StartTime <= shift.StartTime)
+            {
+                _rawToFlatList.Add("Leave", MapTo(shift.StartTime, shift.EndTime));
+            }
             else
             {
                 _rawToFlatList.Add("Shift", MapTo(shift.StartTime, shift.EndTime));
